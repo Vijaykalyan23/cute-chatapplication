@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -6,36 +7,44 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 #chat-container {
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
     background: white;
     padding: 10px;
     border-radius: 15px;
-    box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 0.7    );
+    box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 0.7);
     background-image: url(https://img.freepik.com/free-vector/hearts-valentines-day-background-design-vector-illustration_1284-50461.jpg?t=st=1734164965~exp=1734168565~hmac=ff70481e5a09b02d4063069d050cac94d0245982c3fa0a6a09450e3b3b9dba76&w=740);
+    overflow: hidden;
 }
 
 h2 {
     text-align: center;
-    font-family: "Merienda";
+    font-family: "Merienda", sans-serif;
+    font-size: 1.8rem; /* Adjusting font size for headings */
 }
 
+/* User container (input fields) */
 #user-container {
     display: flex;
+    flex-direction: column;
     gap: 10px;
     margin-bottom: 10px;
 }
 
 #user-container input {
-    flex: 1;
-    padding: 5px;
+    width: 100%;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    font-size: 1rem;
 }
 
+/* Messages container */
 #messages {
     height: 300px;
     overflow-y: auto;
@@ -44,26 +53,25 @@ h2 {
     border: 1px solid #ccc;
     border-left: 5px;
     border-radius: 5px;
-
 }
 
-
-
+/* Styling for individual messages */
 #messages div {
-    margin-bottom: 5px ;
+    margin-bottom: 5px;
     padding: 10px;
     border-left: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     max-width: 70%;
-    word-wrap: break-word; /* Enable text wrapping */
-    position: relative; /* For positioning the timestamp inside the message */
+    word-wrap: break-word;
+    position: relative;
 }
 
-
+/* Input container for sending message */
 #input-container {
     display: flex;
     gap: 10px;
+    justify-content: space-between;
 }
 
 #input {
@@ -71,6 +79,7 @@ h2 {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    font-size: 1rem;
 }
 
 #send {
@@ -80,10 +89,11 @@ h2 {
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1rem;
 }
 
+/* Self and other message styles */
 .self {
-    
     margin-left: auto; 
     text-align: right;
     color: orchid;
@@ -93,21 +103,90 @@ h2 {
 }
 
 .other {
-    
-        margin-right: auto;
-        text-align: left;
-        color: black;
-        background-color: #f0e6e6;
-        border-radius: 10px 10px 10px 0;
-        margin-bottom: 5px;
+    margin-right: auto;
+    text-align: left;
+    color: black;
+    background-color: #f0e6e6;
+    border-radius: 10px 10px 10px 0;
+    margin-bottom: 5px;
 }
 
+/* Timestamp styling */
 .timestamp {
     display: block;
     font-size: 0.65rem;
     color: rgb(0, 0, 0);
     font-weight: 400;
     position: absolute;
-    right: 10px; /* Align to the bottom-right */
-    padding-top:15px;
+    right: 10px;
+    padding-top: 15px;
 }
+
+/* Mobile Responsiveness: Media Queries */
+@media (max-width: 768px) {
+    #chat-container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    #user-container input {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+
+    #messages {
+        height: 250px;
+    }
+
+    #input-container {
+        flex-direction: column;
+    }
+
+    #input, #send {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #send {
+        padding: 12px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #chat-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    #user-container input {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    #messages {
+        height: 200px;
+        padding: 8px;
+    }
+
+    #input, #send {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    #input-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
